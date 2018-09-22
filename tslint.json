@@ -1,0 +1,23 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "curly": false,
+    "no-inferrable-types": false,
+    "quotemark": [ true, "single" ],
+    "semicolon": [ true, "never" ],
+    "trailing-comma": false,
+    "typedef": [
+      true,
+      "arrow-call-signature",
+      "array-destructuring",
+      "arrow-parameter",
+      "call-signature",
+      "member-variable-declaration",
+      "object-destructuring",
+      "parameter",
+      "property-declaration",
+      "variable-declaration"
+    ],
+    "variable-name": [ true, "allow-leading-underscore", "allow-snake-case"]
+  }
+}

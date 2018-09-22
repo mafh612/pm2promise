@@ -1,0 +1,6 @@
+export * from './lib/connect'
+export * from './lib/delete'
+export * from './lib/describe'
+export * from './lib/dump'
+export * from './lib/flush'
+export * from './lib/kill.daemon'
