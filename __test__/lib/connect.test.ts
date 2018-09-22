@@ -14,6 +14,10 @@ describe('test pm2promise connect', () => {
     return expect(connect()).resolves.toEqual(undefined)
   })
 
+  test('connect call noDaemonMode', async () => {
+    return expect(connect(false)).resolves.toEqual(undefined)
+  })
+
   test('connect throw', async () => {
     const fake_connect: (cb: (err: Error) => void) => void
       = (cb: (err: Error) => void): void => { cb(new Error('fake error')) }

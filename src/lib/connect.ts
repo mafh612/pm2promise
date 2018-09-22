@@ -7,8 +7,9 @@ import { connect as pm2connect } from 'pm2'
  * @returns Promise<void>
  * @throws Error
  */
-const connect: () => Promise<void> = (): Promise<void> => {
+const connect: (noDaemonMode?: boolean) => Promise<void> = (noDaemonMode?: boolean): Promise<void> => {
   return new Promise((resolve: () => void, reject: (reason: Error) => void): void => {
+    if (noDaemonMode) pm2connect(false, (err: Error) => err ? reject(err) : resolve())
     pm2connect((err: Error) => err ? reject(err) : resolve())
   })
 }
