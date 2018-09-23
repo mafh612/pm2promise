@@ -2,9 +2,9 @@
 
 ## install
 
-`npm install pm2promise`
+`npm install pm2promises`
 
-`yarn add pm2promise`
+`yarn add pm2promises`
 
 
 ## documentation
