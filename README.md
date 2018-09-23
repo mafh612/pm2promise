@@ -13,7 +13,7 @@
 
 ### example
 ```typescript
-import * as pm2, { StartOptions, ProcessDescription } from '../src'
+import * as pm2p, { StartOptions, ProcessDescription } from 'pm2promises'
 
 const startOptions: StartOptions = {
   name: 'process',
