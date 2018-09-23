@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for startup.ts</title>
+    <title>Code coverage report for disconnect.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> startup.ts
+      <a href="index.html">All files</a> disconnect.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>8/8</span>
       </div>
     </div>
   </div>
@@ -63,14 +63,7 @@
 18
 19
 20
-21
-22
-23</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+21</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -82,33 +75,34 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { startup as pm2startup } from 'pm2'
-&nbsp;
-type Platform = 'ubuntu'|'centos'|'redhat'|'gentoo'|'systemd'|'darwin'|'amazon'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { disconnect as pm2disconnect } from 'pm2'
 &nbsp;
 /**
  * @description
- * Registers the script as a process that will start on machine boot.
- * Platform can currently be: “ubuntu”, “centos”, “redhat”, “gentoo”, “systemd”, “darwin”, or “amazon”.
- * The current process list will be dumped and saved for resurrection on reboot.
- * @returns Promise&lt;string&gt;
+ * Disconnects from the pm2 daemon.
+ * @returns Promise&lt;void&gt;
  * @throws Error
  */
-const startup: (platform: Platform) =&gt; Promise&lt;string&gt;
-  = (platform: Platform): Promise&lt;string&gt; =&gt; {
-    return new Promise((resolve: (result: string) =&gt; void, reject: (reason: Error) =&gt; void): void =&gt; {
-      pm2startup(platform, (err: Error, result: string) =&gt; {
-        err ? reject(err) : resolve(result)
-      })
+const disconnect: () =&gt; Promise&lt;void&gt; = (): Promise&lt;void&gt; =&gt; {
+    return new Promise((resolve: () =&gt; void, reject: (reason: Error) =&gt; void): void =&gt; {
+      try {
+        pm2disconnect()
+        resolve()
+      } catch (e) {
+        reject(e)
+      }
     })
 }
 &nbsp;
-export { startup, Platform }
+export { disconnect }
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
