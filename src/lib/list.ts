@@ -2,8 +2,8 @@ import { list as pm2list, ProcessDescription } from 'pm2'
 
 /**
  * @description
- * Opens a message bus.
- * @returns Promise<axon.SubEmitterSocket>
+ * Gets the list of running processes being managed by pm2.
+ * @returns Promise<ProcessDescription>
  * @throws Error
  */
 const list: () => Promise<ProcessDescription[]>

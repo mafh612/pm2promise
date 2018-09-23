@@ -9,7 +9,7 @@ import { connect as pm2connect } from 'pm2'
  */
 const connect: (noDaemonMode?: boolean) => Promise<void> = (noDaemonMode?: boolean): Promise<void> => {
   return new Promise((resolve: () => void, reject: (reason: Error) => void): void => {
-    if (noDaemonMode) pm2connect(false, (err: Error) => err ? reject(err) : resolve())
+    if (noDaemonMode !== undefined) pm2connect(noDaemonMode, (err: Error) => err ? reject(err) : resolve())
     pm2connect((err: Error) => err ? reject(err) : resolve())
   })
 }

@@ -13,3 +13,17 @@ pm2.dump()
 pm2.flush('process')
 // istanbul ignore next
 pm2.killDaemon()
+// istanbul ignore next
+pm2.launchBus()
+// istanbul ignore next
+pm2.list()
+// istanbul ignore next
+pm2.reload('process')
+// istanbul ignore next
+pm2.restart('process')
+// istanbul ignore next
+pm2.start({ name: 'process', script: 'process.js'})
+// istanbul ignore next
+pm2.startup('ubuntu')
+// istanbul ignore next
+pm2.stop('process')

@@ -14,10 +14,6 @@ describe('test pm2promise connect', () => {
     return expect(connect()).resolves.toEqual(undefined)
   })
 
-  test('connect call noDaemonMode', async () => {
-    return expect(connect(false)).resolves.toEqual(undefined)
-  })
-
   test('connect throw', async () => {
     const fake_connect: (cb: (err: Error) => void) => void
       = (cb: (err: Error) => void): void => { cb(new Error('fake error')) }
@@ -25,5 +21,23 @@ describe('test pm2promise connect', () => {
     spyOn(pm2, 'connect').and.callFake(fake_connect)
 
     return expect(connect()).rejects.toThrow('fake error')
+  })
+
+  test('connect call noDaemonMode', async () => {
+    const fake_connect: (noDaemonMode: boolean, cb: (err: Error) => void) => void
+      = (noDaemonMode: boolean, cb: (err: Error) => void): void => { cb(undefined) }
+
+    spyOn(pm2, 'connect').and.callFake(fake_connect)
+
+    return expect(connect(false)).resolves.toEqual(undefined)
+  })
+
+  test('connect throw noDaemonMode', async () => {
+    const fake_connect: (noDaemonMode: boolean, cb: (err: Error) => void) => void
+      = (noDaemonMode: boolean, cb: (err: Error) => void): void => { cb(new Error('fake error')) }
+
+    spyOn(pm2, 'connect').and.callFake(fake_connect)
+
+    return expect(connect(false)).rejects.toThrow('fake error')
   })
 })
