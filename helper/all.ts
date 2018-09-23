@@ -22,6 +22,10 @@ pm2.reload('process')
 // istanbul ignore next
 pm2.restart('process')
 // istanbul ignore next
+pm2.sendDataToProcessId(1, { data: 'test' })
+// istanbul ignore next
+pm2.sendSignalToProcessName(1, 2)
+// istanbul ignore next
 pm2.start({ name: 'process', script: 'process.js'})
 // istanbul ignore next
 pm2.startup('ubuntu')
