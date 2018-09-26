@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>21/21</span>
+        <span class='fraction'>0/21</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>20/20</span>
+        <span class='fraction'>0/20</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>17/17</span>
+        <span class='fraction'>0/17</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -94,7 +94,7 @@
 49
 50
 51</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,40 +111,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// tslint:disable unified-signatures
-import { start as pm2start, StartOptions } from 'pm2'
+<span class="cstat-no" title="statement not covered" >import { start as pm2start, StartOptions } from 'pm2'</span>
 &nbsp;
 /**
  * @description
@@ -160,46 +160,46 @@ function start(jsonConfigFile: string): Promise&lt;void&gt;
 function start(script: string): Promise&lt;void&gt;
 function start(script: string, options: StartOptions): Promise&lt;void&gt;
 function start(script: string, jsonConfigFile: string): Promise&lt;void&gt;
-function start(...args: any[]): Promise&lt;void&gt; {
-    return new Promise((resolve: () =&gt; void, reject: (reason: Error) =&gt; void): void =&gt; {
-      const [first, second]: string[]|StartOptions[] = args
+function <span class="fstat-no" title="function not covered" >start(</span>...args: any[]): Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" >    return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve: () =&gt; void, reject: (reason: Error) =&gt; void): void =&gt; {</span>
+      const [first, second]: string[]|StartOptions[] = <span class="cstat-no" title="statement not covered" >args</span>
 &nbsp;
-      if (second &amp;&amp; typeof second === 'object') {
-        pm2start(first as string, second as StartOptions, (err: Error) =&gt; err ? reject(err) : resolve())
+<span class="cstat-no" title="statement not covered" >      if (second &amp;&amp; typeof second === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >        pm2start(first as string, second as StartOptions, <span class="fstat-no" title="function not covered" >(e</span>rr: Error) =&gt; <span class="cstat-no" title="statement not covered" >err ? reject(err) : resolve())</span></span>
 &nbsp;
-        return
+<span class="cstat-no" title="statement not covered" >        return</span>
       }
 &nbsp;
-      if (second &amp;&amp; typeof second === 'string') {
-        pm2start(first as string, second as string, (err: Error) =&gt; err ? reject(err) : resolve())
+<span class="cstat-no" title="statement not covered" >      if (second &amp;&amp; typeof second === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >        pm2start(first as string, second as string, <span class="fstat-no" title="function not covered" >(e</span>rr: Error) =&gt; <span class="cstat-no" title="statement not covered" >err ? reject(err) : resolve())</span></span>
 &nbsp;
-        return
+<span class="cstat-no" title="statement not covered" >        return</span>
       }
 &nbsp;
-      if (typeof first === 'object') {
-        pm2start(first as StartOptions, (err: Error) =&gt; err ? reject(err) : resolve())
+<span class="cstat-no" title="statement not covered" >      if (typeof first === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >        pm2start(first as StartOptions, <span class="fstat-no" title="function not covered" >(e</span>rr: Error) =&gt; <span class="cstat-no" title="statement not covered" >err ? reject(err) : resolve())</span></span>
 &nbsp;
-        return
+<span class="cstat-no" title="statement not covered" >        return</span>
       }
 &nbsp;
-      if (typeof first === 'string') {
-        pm2start(first as string, (err: Error) =&gt; err ? reject(err) : resolve())
+<span class="cstat-no" title="statement not covered" >      if (typeof first === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >        pm2start(first as string, <span class="fstat-no" title="function not covered" >(e</span>rr: Error) =&gt; <span class="cstat-no" title="statement not covered" >err ? reject(err) : resolve())</span></span>
 &nbsp;
-        return
+<span class="cstat-no" title="statement not covered" >        return</span>
       }
 &nbsp;
-      reject(new Error('options missing'))
+<span class="cstat-no" title="statement not covered" >      reject(new Error('options missing'))</span>
     })
 }
 &nbsp;
-export { start }
+export { <span class="cstat-no" title="statement not covered" >start </span>}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Sep 23 2018 15:36:30 GMT+0200 (Central European Summer Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Sep 26 2018 17:03:06 GMT+0200 (Central European Summer Time)
 </div>
 </div>
 <script src="prettify.js"></script>
