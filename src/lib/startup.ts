@@ -1,6 +1,5 @@
 import { startup as pm2startup } from 'pm2'
-
-type Platform = 'ubuntu'|'centos'|'redhat'|'gentoo'|'systemd'|'darwin'|'amazon'
+import { Platform } from './pm2.interfaces'
 
 /**
  * @description

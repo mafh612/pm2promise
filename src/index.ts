@@ -1,5 +1,6 @@
-import { Command, Proc, ProcessDescription, StartOptions } from 'pm2'
-
+/**
+ * export all
+ */
 export * from './lib/connect'
 export * from './lib/delete'
 export * from './lib/describe'
@@ -16,10 +17,4 @@ export * from './lib/send.signal.to.process.name'
 export * from './lib/start'
 export * from './lib/startup'
 export * from './lib/stop'
-
-export {
-  Command,
-  Proc,
-  ProcessDescription,
-  StartOptions
-}
+export * from './lib/pm2.interfaces'
