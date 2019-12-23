@@ -16,27 +16,45 @@ afterEach(() => {
 
 describe('test pm2promise sendDataToProcessId', () => {
   test('describe instance', async () => {
-    return expect(sendDataToProcessId).toBeInstanceOf(Function)
+    expect(sendDataToProcessId).toBeInstanceOf(Function)
   })
 
   test('sendDataToProcessId call', async () => {
-    const fake_function: (proc: number, packet: object, cb: (err: Error, result: string) => void) => void
-      = (proc: number, packet: object, cb: (err: Error, result: string) => void): void => {
-        cb(undefined, 'result')
-      }
+    const fake_function: (
+      proc: number,
+      packet: object,
+      cb: (err: Error, result: string) => void
+    ) => void = (
+      proc: number,
+      packet: object,
+      cb: (err: Error, result: string) => void
+    ): void => {
+      cb(undefined, 'result')
+    }
     spyOn(pm2, 'sendDataToProcessId').and.callFake(fake_function)
 
-    return expect(sendDataToProcessId(1, { data: 'test' })).resolves.toEqual('result')
+    await expect(sendDataToProcessId(1, { data: 'test' })).resolves.toEqual(
+      'result'
+    )
   })
 
   test('sendDataToProcessId throw', async () => {
-    const fake_function: (proc: number, packet: object, cb: (err: Error, result: string) => void) => void
-      = (proc: number, packet: object, cb: (err: Error, result: string) => void): void => {
-        cb(new Error('fake error'), undefined)
-      }
+    const fake_function: (
+      proc: number,
+      packet: object,
+      cb: (err: Error, result: string) => void
+    ) => void = (
+      proc: number,
+      packet: object,
+      cb: (err: Error, result: string) => void
+    ): void => {
+      cb(new Error('fake error'), undefined)
+    }
 
     spyOn(pm2, 'sendDataToProcessId').and.callFake(fake_function)
 
-    return expect(sendDataToProcessId(1, { data: 'test' })).rejects.toThrow('fake error')
+    await expect(sendDataToProcessId(1, { data: 'test' })).rejects.toThrow(
+      'fake error'
+    )
   })
 })

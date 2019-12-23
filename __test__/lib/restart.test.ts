@@ -16,27 +16,31 @@ afterEach(() => {
 
 describe('test pm2promise restart', () => {
   test('describe instance', async () => {
-    return expect(restart).toBeInstanceOf(Function)
+    expect(restart).toBeInstanceOf(Function)
   })
 
   test('restart call', async () => {
-    const fake_function: (process: string|number, cb: (err?: Error) => void) => void
-      = (process: string|number, cb: (err: Error) => void): void => {
-        cb(undefined)
-      }
+    const fake_function: (
+      process: string | number,
+      cb: (err?: Error) => void
+    ) => void = (process: string | number, cb: (err: Error) => void): void => {
+      cb(undefined)
+    }
     spyOn(pm2, 'restart').and.callFake(fake_function)
 
-    return expect(restart('process')).resolves.toEqual(undefined)
+    await expect(restart('process')).resolves.toEqual(undefined)
   })
 
   test('restart throw', async () => {
-    const fake_function: (process: string|number, cb: (err?: Error) => void) => void
-      = (process: string|number, cb: (err: Error) => void): void => {
-        cb(new Error('fake error'))
-      }
+    const fake_function: (
+      process: string | number,
+      cb: (err?: Error) => void
+    ) => void = (process: string | number, cb: (err: Error) => void): void => {
+      cb(new Error('fake error'))
+    }
 
     spyOn(pm2, 'restart').and.callFake(fake_function)
 
-    return expect(restart('process')).rejects.toThrow('fake error')
+    await expect(restart('process')).rejects.toThrow('fake error')
   })
 })

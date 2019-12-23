@@ -12,27 +12,29 @@ afterEach(() => {
 
 describe('test pm2promise _delete', () => {
   test('_delete instance', async () => {
-    return expect(dump).toBeInstanceOf(Function)
+    expect(dump).toBeInstanceOf(Function)
   })
 
   test('_delete call', async () => {
     const result: string = 'dump result'
-    const fake_function: (cb: (err?: Error) => void) => void
-      = (cb: (err: Error, result: string) => void): void => {
-        cb(undefined, result)
-      }
+    const fake_function: (cb: (err?: Error) => void) => void = (
+      cb: (err: Error, result: string) => void
+    ): void => {
+      cb(undefined, result)
+    }
     spyOn(pm2, 'dump').and.callFake(fake_function)
 
-    return expect(dump()).resolves.toEqual(result)
+    await expect(dump()).resolves.toEqual(result)
   })
 
   test('_delete throw', async () => {
-    const fake_function: (cb: (err?: Error) => void) => void
-      = (cb: (err: Error, result: string) => void): void => {
-        cb(new Error('fake error'), undefined)
-      }
+    const fake_function: (cb: (err?: Error) => void) => void = (
+      cb: (err: Error, result: string) => void
+    ): void => {
+      cb(new Error('fake error'), undefined)
+    }
     spyOn(pm2, 'dump').and.callFake(fake_function)
 
-    return expect(dump()).rejects.toThrow('fake error')
+    await expect(dump()).rejects.toThrow('fake error')
   })
 })

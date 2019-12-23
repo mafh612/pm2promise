@@ -7,37 +7,48 @@ afterEach(() => {
 
 describe('test pm2promise connect', () => {
   test('connect instance', async () => {
-    return expect(connect).toBeInstanceOf(Function)
+    expect(connect).toBeInstanceOf(Function)
   })
 
   test('connect call', async () => {
-    return expect(connect()).resolves.toEqual(undefined)
+    await expect(connect()).resolves.toEqual(undefined)
   })
 
   test('connect throw', async () => {
-    const fake_connect: (cb: (err: Error) => void) => void
-      = (cb: (err: Error) => void): void => { cb(new Error('fake error')) }
+    const fake_connect: (cb: (err: Error) => void) => void = (
+      cb: (err: Error) => void
+    ): void => {
+      cb(new Error('fake error'))
+    }
 
     spyOn(pm2, 'connect').and.callFake(fake_connect)
 
-    return expect(connect()).rejects.toThrow('fake error')
+    await expect(connect()).rejects.toThrow('fake error')
   })
 
   test('connect call noDaemonMode', async () => {
-    const fake_connect: (noDaemonMode: boolean, cb: (err: Error) => void) => void
-      = (noDaemonMode: boolean, cb: (err: Error) => void): void => { cb(undefined) }
+    const fake_connect: (
+      noDaemonMode: boolean,
+      cb: (err: Error) => void
+    ) => void = (noDaemonMode: boolean, cb: (err: Error) => void): void => {
+      cb(undefined)
+    }
 
     spyOn(pm2, 'connect').and.callFake(fake_connect)
 
-    return expect(connect(false)).resolves.toEqual(undefined)
+    await expect(connect(false)).resolves.toEqual(undefined)
   })
 
   test('connect throw noDaemonMode', async () => {
-    const fake_connect: (noDaemonMode: boolean, cb: (err: Error) => void) => void
-      = (noDaemonMode: boolean, cb: (err: Error) => void): void => { cb(new Error('fake error')) }
+    const fake_connect: (
+      noDaemonMode: boolean,
+      cb: (err: Error) => void
+    ) => void = (noDaemonMode: boolean, cb: (err: Error) => void): void => {
+      cb(new Error('fake error'))
+    }
 
     spyOn(pm2, 'connect').and.callFake(fake_connect)
 
-    return expect(connect(false)).rejects.toThrow('fake error')
+    await expect(connect(false)).rejects.toThrow('fake error')
   })
 })

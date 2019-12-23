@@ -12,28 +12,30 @@ afterEach(() => {
 
 describe('test pm2promise killDaemon', () => {
   test('killDaemon instance', async () => {
-    return expect(killDaemon).toBeInstanceOf(Function)
+    expect(killDaemon).toBeInstanceOf(Function)
   })
 
   test('killDaemon call', async () => {
-    const fake_function: (cb: (err?: Error) => void) => void
-      = (cb: (err?: Error) => void): void => {
-        cb()
-      }
+    const fake_function: (cb: (err?: Error) => void) => void = (
+      cb: (err?: Error) => void
+    ): void => {
+      cb()
+    }
 
     spyOn(pm2, 'killDaemon').and.callFake(fake_function)
 
-    return expect(killDaemon()).resolves.toEqual(undefined)
+    await expect(killDaemon()).resolves.toEqual(undefined)
   })
 
   test('killDaemon throw', async () => {
-    const fake_function: (cb: (err?: Error) => void) => void
-      = (cb: (err?: Error) => void): void => {
-        cb(new Error('fake error'))
-      }
+    const fake_function: (cb: (err?: Error) => void) => void = (
+      cb: (err?: Error) => void
+    ): void => {
+      cb(new Error('fake error'))
+    }
 
     spyOn(pm2, 'killDaemon').and.callFake(fake_function)
 
-    return expect(killDaemon()).rejects.toThrow('fake error')
+    await expect(killDaemon()).rejects.toThrow('fake error')
   })
 })

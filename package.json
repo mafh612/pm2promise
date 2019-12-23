@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "yarn run tslint --config tslint.json --project tsconfig.json",
     "build": "yarn run tsc --project tsconfig.json",
-    "test": "yarn run jest --config jest.config.json --projects tsconfig.jest.json --detectOpenHandles --no-cache",
+    "test": "yarn run jest --config jest.config.json --projects tsconfig.jest.json --no-cache",
     "all": "yarn run lint && yarn run build && yarn run test",
     "prepublish": "yarn all"
   },

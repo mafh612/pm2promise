@@ -16,18 +16,18 @@ afterEach(() => {
 
 describe('test pm2promise disconnect', () => {
   test('describe instance', async () => {
-    return expect(disconnect).toBeInstanceOf(Function)
+    expect(disconnect).toBeInstanceOf(Function)
   })
 
   test('disconnect call', async () => {
     spyOn(pm2, 'disconnect').and.returnValue(undefined)
 
-    return expect(disconnect()).resolves.toEqual(undefined)
+    await expect(disconnect()).resolves.toEqual(undefined)
   })
 
   test('disconnect throw', async () => {
     spyOn(pm2, 'disconnect').and.throwError('fake error')
 
-    return expect(disconnect()).rejects.toThrow('fake error')
+    await expect(disconnect()).rejects.toThrow('fake error')
   })
 })
